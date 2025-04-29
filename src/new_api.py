@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 base_url =  'https://cg-519a459a-0ea3-42c2-b7bc-fa1143481f74.s3-us-gov-west-1.amazonaws.com/bulk-downloads/paper/'
 
 # base folder
-base_folder = "D:/DE_Project_FEC/fec_env/DE_Project_FEC/data/raw/downloads/"
+base_folder = "D:/DE_Project_FEC/fec_env/big-data-fec-project/data/raw/downloads/"
 
 
 # Define start and end dates
@@ -18,9 +18,7 @@ date_list = [(start_date + timedelta(days=i)).strftime("%Y%m%d")
 
 
 # Print all dates
-i = 0
 for date in date_list:
-    i+=1
     
     file_name = date
     relative_url = f'{file_name}.nofiles.zip'
@@ -31,7 +29,4 @@ for date in date_list:
     with open(f"{base_folder}{relative_url}", "wb") as f:
         for chunk in file_response.iter_content(chunk_size=8192):
             f.write(chunk)
-    
-    if i ==10:
-        break
 
