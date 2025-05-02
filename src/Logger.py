@@ -12,8 +12,8 @@ def format_time(record, datefmt=None):
 logger = logging.getLogger()
 logger.setLevel(logging.INFO) # DEBUG FOR DEV AND ERROR FOR PROD
 
-# out_dir = "./"
-out_dir = "D:/DE_Project_FEC/fec_env/DE_Project_FEC/logs"
+# out_dir
+out_dir = "D:/DE_Project_FEC/fec_env/big-data-fec-project/logs"
 filename = 'app'
 log_filename = f"{out_dir}/{filename}.log"
 
