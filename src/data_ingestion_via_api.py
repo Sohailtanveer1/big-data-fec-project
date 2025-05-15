@@ -62,5 +62,3 @@ def download_and_process_data(zip_url, file_name, base_folder_path, header_url):
         logger.error(f"The file {zip_path} is not a valid ZIP.")
     except Exception as e:
         logger.error(f"Error in processing {file_name}: {e}")
-
-    return None

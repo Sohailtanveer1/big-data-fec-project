@@ -1,0 +1,28 @@
+raw_folder_path: "D:/DE_Project_FEC/fec_env/big-data-fec-project/data/raw/"
+
+file_name:
+  - "candidate_master"
+  - "candidate_committtee_linkage"
+  - "committee_to_committee_transaction"
+  - "committe_master"
+
+zip_url:
+  - "https://www.fec.gov/files/bulk-downloads/2020/cn20.zip"
+  - "https://www.fec.gov/files/bulk-downloads/2020/ccl20.zip"
+  - "https://www.fec.gov/files/bulk-downloads/2020/oth20.zip"
+  - "https://www.fec.gov/files/bulk-downloads/2020/cm20.zip"
+
+header_url:
+  - "https://www.fec.gov/files/bulk-downloads/data_dictionaries/cn_header_file.csv"
+  - "https://www.fec.gov/files/bulk-downloads/data_dictionaries/ccl_header_file.csv"
+  - "https://www.fec.gov/files/bulk-downloads/data_dictionaries/oth_header_file.csv"
+  - "https://www.fec.gov/files/bulk-downloads/data_dictionaries/cm_header_file.csv"
+
+mysql_creds:
+  hostname : "zop9v.h.filess.io"
+  database : "fec_excitingto"
+  port : "61001"
+  username : "fec_excitingto"
+  password : "2883e82b9447208da5f99210f795b1ff1b65eadc"
+
+
