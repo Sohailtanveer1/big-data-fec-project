@@ -1,4 +1,4 @@
-raw_folder_path: "D:/DE_Project_FEC/fec_env/big-data-fec-project/data/raw/"
+raw_folder_path: "D:/Sohail_DE_Project/fec_env/big-data-fec-project/data/raw/"
 
 file_name:
   - "candidate_master"

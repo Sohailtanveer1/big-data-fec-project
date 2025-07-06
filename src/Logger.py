@@ -13,7 +13,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO) # DEBUG FOR DEV AND ERROR FOR PROD
 
 # out_dir
-out_dir = "D:/DE_Project_FEC/fec_env/big-data-fec-project/logs"
+out_dir = "D:/Sohail_DE_Project/fec_env/big-data-fec-project/logs/"
 filename = 'app'
 log_filename = f"{out_dir}/{filename}.log"
 

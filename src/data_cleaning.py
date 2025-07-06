@@ -3,9 +3,17 @@ import json
 import numpy as np
 import os
 from Logger import logger
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("Data Cleaning App") \
+    .master("local[*]") \
+    .config("spark.driver.bindAddress", "127.0.0.1") \
+    .config("spark.driver.host", "127.0.0.1") \
+    .getOrCreate()
 
 # Define file paths
-base_folder_path = "D:/DE_Project_FEC/fec_env/big-data-fec-project/data/raw"
+base_folder_path = "D:/Sohail_DE_Project/fec_env/big-data-fec-project/data/raw"
 file_name = "candidate_master"
 csv_path = os.path.join(base_folder_path, file_name, f"{file_name}.csv")
 json_path = "C:/Users/mdsoh/Downloads/USCities.json"
@@ -15,7 +23,7 @@ logger.info(f"Data processing started for: {file_name}")
 # Load candidate master CSV
 try:
     #cand_master_df = pd.read_csv(csv_path)
-    cand_master_Df = spark.read('csv').option('header',True).load(csv_path)
+    cand_master_df = spark.read.option('header',True).csv(csv_path)
     logger.info(f"Successfully loaded {file_name}.csv from {csv_path}")
 except FileNotFoundError:
     logger.error(f"{file_name}.csv not found at path: {csv_path}")
@@ -25,7 +33,7 @@ except pd.errors.EmptyDataError:
     raise
 
 # Fill null values
-cand_master_df['CAND_PTY_AFFILIATION'] = cand_master_df['CAND_PTY_AFFILIATION'].fillna('NNE')
+cand_master_df = cand_master_df.fillna({"CAND_PTY_AFFILIATION": "NNE"})
 logger.info("Filled null values in CAND_PTY_AFFILIATION with 'NNE'")
 
 cand_master_df['CAND_OFFICE_DISTRICT'] = cand_master_df['CAND_OFFICE_DISTRICT'].fillna(0.0).astype(int)
@@ -113,3 +121,5 @@ try:
 except Exception as e:
     logger.error(f"Failed to save cleaned data to {output_file}")
     raise e
+finally:
+    spark.stop()
